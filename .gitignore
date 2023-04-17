@@ -2,6 +2,10 @@
 __pycache__/
 *.py[cod]
 
+/datasets
+/logs
+/.idea
+
 # Compiled source #
 ###################
 *.com

@@ -24,8 +24,10 @@ class MixDataset(Dataset):
 
         self.hr_list = []
         self.lr_list = []
+    
         for hr_path in self.hr_paths:
             hr_imgs = sorted(os.listdir(hr_path))
+            print(hr_path)
             for hr_img in hr_imgs:
                 self.hr_list.append(os.path.join(hr_path, hr_img))
         for lr_path in self.lr_paths:
@@ -94,8 +96,8 @@ if __name__ == '__main__':
     config.REPEAT = 1
     config.VALUE_RANGE = 255.0
 
-    D = MixDataset(hr_paths=['/data/liwenbo/datasets/DIV2K/DIV2K_train_HR_sub'],
-                   lr_paths=['/data/liwenbo/datasets/DIV2K/DIV2K_train_LR_bicubic_sub/X4'],
+    D = MixDataset(hr_paths=['../../datasets/DIV2K/DIV2K_train_HR'],
+                   lr_paths=['../../datasets/DIV2K/DIV2K_train_LR_bicubic/X4'],
                    config=config)
     print(D.data_len, D.full_len)
     lr, hr = D.__getitem__(5)

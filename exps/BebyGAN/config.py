@@ -17,7 +17,7 @@ class Config:
 
     # dataloader
     DATALOADER = edict()
-    DATALOADER.IMG_PER_GPU = 8
+    DATALOADER.IMG_PER_GPU = 3
     DATALOADER.NUM_WORKERS = 4
 
     # model
@@ -88,7 +88,7 @@ class Config:
 
     # initialization
     CONTINUE_ITER = None
-    G_INIT_MODEL = '/data/liwenbo/sisr/bebygan/pretrained/RRDB_warmup.pth'
+    G_INIT_MODEL = '../../models/RRDB_warmup.pth'
     D_INIT_MODEL = None
 
     # log and save
@@ -99,7 +99,7 @@ class Config:
     VAL = edict()
     VAL.PERIOD = 10000
     VAL.TYPE = 'MixDataset'
-    VAL.DATASETS = ['BSDS100']
+    VAL.DATASETS = ['Set5']
     VAL.SPLITS = ['VAL']
     VAL.PHASE = 'val'
     VAL.INPUT_HEIGHT = None

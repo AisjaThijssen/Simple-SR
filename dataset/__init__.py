@@ -17,54 +17,58 @@ _dataset_modules = [
 
 
 class DATASET:
-    LEGAL = ['DIV2K', 'Flickr2K', 'Set5', 'Set14', 'BSDS100', 'Urban100', 'Manga109']
+    LEGAL = ['DIV2K', 'Flickr2K', 'Set5', 'Set14', 'BSDS100', 'Urban100', 'Manga109', 'JADS']
 
     # training dataset
     DIV2K = edict()
     DIV2K.TRAIN = edict()
-    DIV2K.TRAIN.HRx2 = '/data/liwenbo/datasets/DIV2K/DIV2K_train_HR_sub'  # 32208
-    DIV2K.TRAIN.HRx3 = '/data/liwenbo/datasets/DIV2K/DIV2K_train_HR_sub'  # 32208
-    DIV2K.TRAIN.HRx4 = '/data/liwenbo/datasets/DIV2K/DIV2K_train_HR_sub'  # 32208
-    DIV2K.TRAIN.LRx2 = '/data/liwenbo/datasets/DIV2K/DIV2K_train_LR_bicubic_sub/X2'
-    DIV2K.TRAIN.LRx3 = '/data/liwenbo/datasets/DIV2K/DIV2K_train_LR_bicubic_sub/X3'
-    DIV2K.TRAIN.LRx4 = '/data/liwenbo/datasets/DIV2K/DIV2K_train_LR_bicubic_sub/X4'
+    DIV2K.TRAIN.HRx2 = None  # 32208
+    DIV2K.TRAIN.HRx3 = None  # 32208
+    DIV2K.TRAIN.HRx4 = '../../datasets/DIV2K/DIV2K_train_HR_sub'  # 32208
+    DIV2K.TRAIN.LRx2 = None
+    DIV2K.TRAIN.LRx3 = None
+    DIV2K.TRAIN.LRx4 = '../../datasets/DIV2K/DIV2K_train_LR_bicubic_sub'
+
+    DIV2K.VAL = edict()
+    DIV2K.VAL.HRx4 = '../../datasets/DIV2K/DIV2K_valid_HR'
+    DIV2K.VAL.LRx4 = '../../datasets/DIV2K/DIV2K_valid_LR/x4'
 
     Flickr2K = edict()
     Flickr2K.TRAIN = edict()
-    Flickr2K.TRAIN.HRx2 = '/data/liwenbo/datasets/Flickr2K/Flickr2K_HR_sub'  # 106641
-    Flickr2K.TRAIN.HRx3 = '/data/liwenbo/datasets/Flickr2K/Flickr2K_HR_sub'  # 106641
-    Flickr2K.TRAIN.HRx4 = '/data/liwenbo/datasets/Flickr2K/Flickr2K_HR_sub'  # 106641
-    Flickr2K.TRAIN.LRx2 = '/data/liwenbo/datasets/Flickr2K/Flickr2K_LR_bicubic_sub/X2'
-    Flickr2K.TRAIN.LRx3 = '/data/liwenbo/datasets/Flickr2K/Flickr2K_LR_bicubic_sub/X3'
-    Flickr2K.TRAIN.LRx4 = '/data/liwenbo/datasets/Flickr2K/Flickr2K_LR_bicubic_sub/X4'
+    Flickr2K.TRAIN.HRx2 = None  # 106641
+    Flickr2K.TRAIN.HRx3 = None  # 106641
+    Flickr2K.TRAIN.HRx4 = '../../datasets/Flickr2K/Flickr2K_HR_sub'  # 106641
+    Flickr2K.TRAIN.LRx2 = None
+    Flickr2K.TRAIN.LRx3 = None
+    Flickr2K.TRAIN.LRx4 = '../../datasets/Flickr2K/Flickr2K_LR_bicubic_sub'
 
     # testing dataset
     Set5 = edict()
     Set5.VAL = edict()
     Set5.VAL.HRx2 = None
     Set5.VAL.HRx3 = None
-    Set5.VAL.HRx4 = None
+    Set5.VAL.HRx4 = "../../datasets/Set5/GTmod12"
     Set5.VAL.LRx2 = None
     Set5.VAL.LRx3 = None
-    Set5.VAL.LRx4 = None
+    Set5.VAL.LRx4 = "../../datasets/Set5/LRbicx4"
 
     Set14 = edict()
     Set14.VAL = edict()
     Set14.VAL.HRx2 = None
     Set14.VAL.HRx3 = None
-    Set14.VAL.HRx4 = None
+    Set14.VAL.HRx4 = "../../datasets/Set14/GTmod12"
     Set14.VAL.LRx2 = None
     Set14.VAL.LRx3 = None
-    Set14.VAL.LRx4 = None
+    Set14.VAL.LRx4 = "../../datasets/Set14/LRbicx4"
 
     BSDS100 = edict()
     BSDS100.VAL = edict()
-    BSDS100.VAL.HRx2 = '/data/liwenbo/datasets/benchmark_SR/BSDS100/HR/modX2'
-    BSDS100.VAL.HRx3 = '/data/liwenbo/datasets/benchmark_SR/BSDS100/HR/modX3'
-    BSDS100.VAL.HRx4 = '/data/liwenbo/datasets/benchmark_SR/BSDS100/HR/modX4'
-    BSDS100.VAL.LRx2 = '/data/liwenbo/datasets/benchmark_SR/BSDS100/LR_bicubic/X2'
-    BSDS100.VAL.LRx3 = '/data/liwenbo/datasets/benchmark_SR/BSDS100/LR_bicubic/X3'
-    BSDS100.VAL.LRx4 = '/data/liwenbo/datasets/benchmark_SR/BSDS100/LR_bicubic/X4'
+    BSDS100.VAL.HRx2 = None
+    BSDS100.VAL.HRx3 = None
+    BSDS100.VAL.HRx4 = "../../datasets/BSDS100/BSDS100_HR_mod4"
+    BSDS100.VAL.LRx2 = None
+    BSDS100.VAL.LRx3 = None
+    BSDS100.VAL.LRx4 = "../../datasets/BSDS100/BSDS100_LR"
 
     Urban100 = edict()
     Urban100.VAL = edict()
@@ -84,6 +88,10 @@ class DATASET:
     Manga109.VAL.LRx3 = None
     Manga109.VAL.LRx4 = None
 
+    JADS = edict()
+    JADS.VAL = dict()
+    JADS.VAL.HRx4 = "../../datasets/JADS/test_photos_orignal_full_resolution"
+    JADS.VAL.LRx4 = "../../datasets/JADS/test_photos_x4_resolution"
 
 def get_dataset(config):
     dataset_type = config.TYPE

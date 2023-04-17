@@ -57,20 +57,21 @@ if __name__ == '__main__':
     from utils import dataloader
     from utils.model_opr import load_model
 
-    config.VAL.DATASETS = ['BSDS100']
+    config.VAL.DATASETS = ['JADS']
     config.VAL.SAVE_IMG = True
 
     model = Network(config)
-    if torch.cuda.is_available():
+    if False:
         device = torch.device('cuda')
     else:
         device = torch.device('cpu')
     model.G = model.G.to(device)
 
-    model_path = 'log/models/600000_G.pth'
+    model_path = '../../logs/BebyGAN/models_full_image/10000_G.pth'
     load_model(model.G, model_path, cpu=True)
 
     val_dataset = get_dataset(config.VAL)
     val_loader = dataloader.val_loader(val_dataset, config, 0, 1)
-    psnr, ssim = validate(model, val_loader, config, device, 0, save_path='gt')
+    os.makedirs('../../logs/BebyGAN/saved_imgs/JADS_full')
+    psnr, ssim = validate(model, val_loader, config, device, 0, save_path='../../logs/BebyGAN/saved_imgs/JADS_full')
     print('PSNR: %.4f, SSIM: %.4f' % (psnr, ssim))
